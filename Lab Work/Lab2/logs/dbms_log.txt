@@ -1,0 +1,1451 @@
+mysql> use DBMS_Lab;
+Database changed
+mysql> SELECT employee_id, first_name, last_name, salary
+    -> FROM Employees
+    -> WHERE is_active = TRUE
+    ->   AND salary > 50000
+    -> ORDER BY salary DESC;
++-------------+------------+-----------+-----------+
+| employee_id | first_name | last_name | salary    |
++-------------+------------+-----------+-----------+
+|         820 | Charlie    | Taylor    | 109218.77 |
+|         340 | Alice      | Taylor    | 108958.96 |
+|         742 | Jane       | Brown     | 108029.27 |
+|          80 | Jane       | Johnson   | 107513.45 |
+|         689 | John       | Taylor    | 106091.67 |
+|         410 | Charlie    | Taylor    | 105838.04 |
+|         622 | John       | Smith     | 104960.71 |
+|         929 | John       | Smith     | 102300.78 |
+|         612 | Alice      | Brown     | 101427.90 |
+|         342 | John       | Smith     | 100566.14 |
+|         652 | Alice      | Johnson   |  99974.03 |
+|         470 | Charlie    | Doe       |  99882.51 |
+|         858 | John       | Taylor    |  99767.67 |
+|         121 | Jane       | Johnson   |  99658.09 |
+|         982 | Jane       | Doe       |  99554.97 |
+|         244 | Charlie    | Taylor    |  99491.03 |
+|         101 | Jane       | Johnson   |  99082.43 |
+|         620 | John       | Johnson   |  99075.19 |
+|         176 | Charlie    | Smith     |  98681.88 |
+|         794 | Alice      | Johnson   |  98595.15 |
+|         498 | Charlie    | Taylor    |  98279.88 |
+|         411 | Jane       | Johnson   |  98066.70 |
+|         525 | Jane       | Johnson   |  97945.75 |
+|         703 | Alice      | Johnson   |  97933.39 |
+|         724 | Charlie    | Smith     |  97876.05 |
+|         577 | Alice      | Doe       |  97695.78 |
+|         856 | Jane       | Doe       |  97436.23 |
+|         764 | Charlie    | Smith     |  97400.63 |
+|         224 | John       | Taylor    |  97391.22 |
+|         816 | Jane       | Taylor    |  97290.87 |
+|           6 | John       | Doe       |  97168.27 |
+|         618 | John       | Brown     |  97001.30 |
+|         493 | John       | Doe       |  96954.66 |
+|         420 | Alice      | Doe       |  96922.53 |
+|         782 | John       | Smith     |  96764.64 |
+|         299 | Bob        | Smith     |  96732.60 |
+|         914 | Jane       | Johnson   |  96650.71 |
+|         205 | Alice      | Taylor    |  96643.26 |
+|         322 | Alice      | Taylor    |  96520.92 |
+|         138 | Jane       | Doe       |  96419.47 |
+|          32 | Charlie    | Smith     |  96402.05 |
+|         781 | John       | Taylor    |  96282.78 |
+|         559 | John       | Doe       |  96234.41 |
+|          25 | Bob        | Brown     |  96177.83 |
+|         694 | Bob        | Brown     |  95826.83 |
+|         418 | Bob        | Brown     |  95727.66 |
+|         353 | Charlie    | Taylor    |  95645.86 |
+|         482 | Alice      | Doe       |  95521.56 |
+|         987 | Jane       | Smith     |  95276.51 |
+|         658 | Bob        | Smith     |  95185.25 |
+|         898 | Alice      | Johnson   |  95144.18 |
+|         175 | Bob        | Johnson   |  95137.22 |
+|         736 | John       | Brown     |  94931.90 |
+|         526 | Bob        | Doe       |  94761.55 |
+|         105 | Bob        | Brown     |  94684.50 |
+|         429 | Jane       | Smith     |  94673.80 |
+|          35 | John       | Doe       |  94591.73 |
+|         756 | John       | Doe       |  94077.86 |
+|           3 | Charlie    | Taylor    |  93703.87 |
+|         973 | Alice      | Johnson   |  93401.15 |
+|         445 | John       | Taylor    |  93378.95 |
+|         754 | Jane       | Brown     |  93332.03 |
+|         706 | John       | Doe       |  93208.19 |
+|         947 | Jane       | Johnson   |  93121.07 |
+|         779 | Bob        | Doe       |  92854.38 |
+|         979 | John       | Doe       |  92757.32 |
+|         988 | Bob        | Smith     |  91995.59 |
+|         634 | Bob        | Taylor    |  91894.94 |
+|          59 | Charlie    | Taylor    |  91801.57 |
+|         290 | Bob        | Brown     |  91713.79 |
+|         139 | John       | Johnson   |  91452.98 |
+|         449 | Bob        | Smith     |  91250.95 |
+|         277 | Jane       | Johnson   |  91105.36 |
+|          52 | Alice      | Smith     |  90875.25 |
+|         184 | John       | Smith     |  90546.84 |
+|         805 | John       | Doe       |  90533.30 |
+|         939 | Alice      | Brown     |  90441.26 |
+|         194 | Jane       | Brown     |  90376.60 |
+|          70 | Charlie    | Doe       |  90265.89 |
+|         388 | Charlie    | Johnson   |  90148.99 |
+|         196 | Charlie    | Taylor    |  89796.52 |
+|         859 | Bob        | Brown     |  89715.19 |
+|         594 | Alice      | Taylor    |  89624.32 |
+|         872 | John       | Taylor    |  89340.56 |
+|         780 | John       | Johnson   |  89027.56 |
+|         728 | Bob        | Taylor    |  88877.25 |
+|         297 | Alice      | Brown     |  88639.64 |
+|         713 | Bob        | Doe       |  88418.86 |
+|         513 | John       | Brown     |  88290.87 |
+|         787 | Jane       | Doe       |  88154.97 |
+|         637 | Jane       | Johnson   |  88063.43 |
+|         549 | Charlie    | Johnson   |  88011.96 |
+|         453 | Alice      | Johnson   |  87771.76 |
+|         921 | John       | Taylor    |  87553.26 |
+|         394 | Alice      | Doe       |  87509.96 |
+|         991 | Jane       | Doe       |  87021.04 |
+|         336 | Bob        | Doe       |  87017.14 |
+|         614 | Charlie    | Johnson   |  86925.87 |
+|         938 | Bob        | Brown     |  86872.19 |
+|         283 | Jane       | Brown     |  86780.80 |
+|         568 | Charlie    | Taylor    |  86778.55 |
+|         533 | Jane       | Doe       |  86549.92 |
+|         647 | Jane       | Brown     |  86415.06 |
+|         343 | Charlie    | Smith     |  86343.77 |
+|         136 | Bob        | Taylor    |  86326.34 |
+|         323 | John       | Taylor    |  86317.27 |
+|         663 | John       | Brown     |  86315.10 |
+|         999 | Jane       | Taylor    |  85991.44 |
+|         124 | Alice      | Taylor    |  85819.69 |
+|          93 | Charlie    | Smith     |  85474.11 |
+|         223 | John       | Doe       |  85440.37 |
+|         109 | Alice      | Doe       |  85269.17 |
+|         338 | John       | Smith     |  85212.97 |
+|         168 | Jane       | Smith     |  85167.54 |
+|         551 | John       | Johnson   |  84999.12 |
+|         864 | Alice      | Doe       |  84890.69 |
+|         382 | John       | Doe       |  84631.48 |
+|         110 | Jane       | Brown     |  84578.33 |
+|         428 | Jane       | Doe       |  84500.93 |
+|          43 | Bob        | Taylor    |  84096.89 |
+|          39 | Charlie    | Johnson   |  84093.72 |
+|         291 | Jane       | Brown     |  83949.20 |
+|         971 | Jane       | Smith     |  83911.50 |
+|         177 | Bob        | Johnson   |  83720.50 |
+|         817 | Bob        | Taylor    |  83158.57 |
+|         271 | Charlie    | Smith     |  82953.89 |
+|         758 | John       | Taylor    |  82867.08 |
+|         545 | John       | Brown     |  82854.08 |
+|         748 | Alice      | Doe       |  82842.17 |
+|         298 | Charlie    | Smith     |  82457.12 |
+|          68 | Charlie    | Smith     |  82380.22 |
+|         951 | John       | Brown     |  82088.11 |
+|         166 | Charlie    | Johnson   |  82028.13 |
+|         455 | Bob        | Doe       |  81693.86 |
+|         151 | Bob        | Doe       |  81423.12 |
+|         863 | Bob        | Smith     |  81390.07 |
+|         230 | Charlie    | Smith     |  81249.78 |
+|         293 | John       | Smith     |  81096.48 |
+|         956 | Alice      | Taylor    |  80696.09 |
+|         716 | Charlie    | Doe       |  80439.16 |
+|         476 | Alice      | Doe       |  80393.17 |
+|         931 | Jane       | Smith     |  80319.87 |
+|         784 | Charlie    | Smith     |  80286.58 |
+|         588 | Alice      | Brown     |  80182.24 |
+|         932 | Alice      | Taylor    |  80059.20 |
+|         491 | John       | Johnson   |  80006.23 |
+|          53 | Bob        | Brown     |  79993.80 |
+|         556 | Charlie    | Doe       |  79810.03 |
+|          82 | John       | Taylor    |  79555.78 |
+|         707 | Jane       | Smith     |  79435.51 |
+|         814 | John       | Brown     |  79424.87 |
+|         681 | John       | Brown     |  79395.93 |
+|         687 | Bob        | Johnson   |  78963.93 |
+|         131 | Jane       | Johnson   |  78729.66 |
+|         193 | Charlie    | Taylor    |  78501.05 |
+|         530 | Alice      | Doe       |  78409.27 |
+|         130 | Charlie    | Taylor    |  78208.30 |
+|         801 | Alice      | Doe       |  78173.37 |
+|         876 | Alice      | Smith     |  77978.80 |
+|         384 | Charlie    | Johnson   |  77941.65 |
+|         670 | John       | Smith     |  77873.93 |
+|         366 | Alice      | Brown     |  77862.52 |
+|         111 | Jane       | Doe       |  77815.65 |
+|         303 | Bob        | Doe       |  77452.42 |
+|         403 | Alice      | Taylor    |  77389.63 |
+|          71 | Jane       | Brown     |  77100.12 |
+|         565 | Charlie    | Brown     |  76701.55 |
+|         446 | Charlie    | Brown     |  76672.10 |
+|         432 | Charlie    | Johnson   |  76533.65 |
+|         242 | John       | Johnson   |  76000.63 |
+|         483 | Jane       | Taylor    |  75932.20 |
+|         265 | John       | Johnson   |  75730.50 |
+|         766 | Charlie    | Taylor    |  75582.84 |
+|         552 | Jane       | Doe       |  75524.35 |
+|         920 | Alice      | Brown     |  75491.69 |
+|         316 | Bob        | Smith     |  75466.05 |
+|         535 | Bob        | Johnson   |  75422.97 |
+|          67 | Charlie    | Johnson   |  75388.12 |
+|         837 | Bob        | Taylor    |  75373.00 |
+|         454 | Bob        | Taylor    |  75101.21 |
+|         524 | John       | Brown     |  75065.52 |
+|         485 | Jane       | Taylor    |  75059.05 |
+|         471 | Alice      | Taylor    |  74976.43 |
+|         287 | Bob        | Doe       |  74615.02 |
+|         114 | Alice      | Doe       |  74467.90 |
+|          19 | John       | Brown     |  74384.16 |
+|         218 | John       | Smith     |  74288.04 |
+|          15 | John       | Johnson   |  74130.93 |
+|          79 | Jane       | Smith     |  74087.75 |
+|         760 | Alice      | Taylor    |  73868.62 |
+|         952 | John       | Johnson   |  73861.55 |
+|         417 | Jane       | Brown     |  73798.36 |
+|         337 | Alice      | Doe       |  73597.18 |
+|         740 | Bob        | Brown     |  73419.03 |
+|         723 | Charlie    | Brown     |  73072.45 |
+|         966 | Alice      | Taylor    |  73038.50 |
+|         289 | Jane       | Taylor    |  73018.33 |
+|          62 | Bob        | Smith     |  72961.60 |
+|         664 | Jane       | Smith     |  72715.44 |
+|         579 | John       | Smith     |  72442.39 |
+|         804 | Bob        | Smith     |  72040.53 |
+|         253 | John       | Taylor    |  71785.16 |
+|         639 | John       | Smith     |  71663.79 |
+|         908 | Charlie    | Brown     |  71593.54 |
+|         950 | John       | Taylor    |  71572.30 |
+|         922 | John       | Johnson   |  71426.86 |
+|         534 | John       | Doe       |  71106.39 |
+|         603 | John       | Brown     |  70934.83 |
+|         708 | Bob        | Doe       |  70315.07 |
+|         630 | Bob        | Smith     |  70311.99 |
+|         799 | Alice      | Johnson   |  69828.64 |
+|         778 | John       | Doe       |  69693.62 |
+|         606 | Alice      | Johnson   |  69685.78 |
+|          36 | Jane       | Brown     |  69680.73 |
+|         683 | Alice      | Johnson   |  69415.45 |
+|         828 | John       | Johnson   |  69340.81 |
+|          30 | Bob        | Smith     |  69253.52 |
+|         295 | Bob        | Brown     |  69046.62 |
+|         103 | Jane       | Smith     |  68856.40 |
+|         426 | Alice      | Johnson   |  68833.85 |
+|           5 | Jane       | Brown     |  68647.60 |
+|         161 | Jane       | Johnson   |  68597.47 |
+|          42 | John       | Johnson   |  68516.17 |
+|         304 | Jane       | Brown     |  68378.63 |
+|         115 | John       | Johnson   |  68373.26 |
+|         213 | Jane       | Doe       |  68361.79 |
+|          74 | Alice      | Doe       |  68325.47 |
+|         965 | Bob        | Taylor    |  68172.82 |
+|         933 | John       | Brown     |  68171.90 |
+|         867 | Charlie    | Smith     |  68065.70 |
+|         819 | Charlie    | Johnson   |  68011.37 |
+|         145 | Charlie    | Smith     |  67792.24 |
+|         974 | Bob        | Smith     |  67764.09 |
+|         201 | Bob        | Doe       |  67751.45 |
+|         839 | Bob        | Taylor    |  67643.72 |
+|         254 | John       | Brown     |  67385.36 |
+|         489 | Charlie    | Smith     |  67340.06 |
+|          72 | Bob        | Doe       |  67283.85 |
+|         427 | Bob        | Brown     |  66851.08 |
+|         895 | Bob        | Johnson   |  66518.38 |
+|         601 | John       | Doe       |  66433.45 |
+|         704 | Alice      | Doe       |  66260.92 |
+|         237 | Alice      | Johnson   |  66131.11 |
+|         378 | Bob        | Doe       |  66068.74 |
+|         788 | Bob        | Smith     |  65788.14 |
+|         335 | John       | Brown     |  65605.53 |
+|         875 | Alice      | Johnson   |  65436.90 |
+|         777 | John       | Doe       |  65411.42 |
+|         623 | Alice      | Brown     |  65239.09 |
+|         512 | Alice      | Doe       |  64624.51 |
+|         462 | John       | Doe       |  64527.59 |
+|         180 | Bob        | Smith     |  64434.80 |
+|         904 | John       | Smith     |  64236.08 |
+|         464 | John       | Johnson   |  63946.34 |
+|         463 | Alice      | Taylor    |  63919.79 |
+|         499 | John       | Doe       |  63437.99 |
+|         627 | Jane       | Johnson   |  63137.58 |
+|         255 | Alice      | Smith     |  63071.92 |
+|         389 | John       | Johnson   |  62821.47 |
+|         685 | John       | Taylor    |  62754.68 |
+|         751 | John       | Taylor    |  62721.49 |
+|          50 | Jane       | Brown     |  62430.20 |
+|         967 | John       | Smith     |  62309.17 |
+|         955 | Charlie    | Johnson   |  62200.12 |
+|         916 | John       | Brown     |  62068.44 |
+|         104 | Bob        | Johnson   |  62000.24 |
+|         617 | Alice      | Brown     |  61987.70 |
+|         324 | Jane       | Johnson   |  61914.64 |
+|         628 | Bob        | Smith     |  61811.25 |
+|         155 | John       | Taylor    |  61731.36 |
+|          99 | Jane       | Smith     |  61561.83 |
+|         798 | Jane       | Johnson   |  61048.61 |
+|         404 | Jane       | Taylor    |  60578.75 |
+|         745 | John       | Johnson   |  60556.05 |
+|         313 | Charlie    | Doe       |  60542.12 |
+|         690 | John       | Doe       |  60103.46 |
+|         629 | Bob        | Doe       |  59836.35 |
+|         978 | Jane       | Smith     |  59528.28 |
+|          38 | Jane       | Doe       |  59494.50 |
+|         881 | Jane       | Johnson   |  59453.99 |
+|         422 | Charlie    | Smith     |  59314.15 |
+|         653 | Jane       | Doe       |  59295.45 |
+|         737 | John       | Brown     |  59281.54 |
+|         272 | Jane       | Johnson   |  59168.24 |
+|         585 | John       | Smith     |  59117.07 |
+|         847 | Bob        | Johnson   |  58934.02 |
+|         696 | Bob        | Taylor    |  58792.54 |
+|         915 | Jane       | Brown     |  58695.29 |
+|         302 | Jane       | Doe       |  58178.44 |
+|         774 | Alice      | Taylor    |  58127.10 |
+|         823 | John       | Johnson   |  58126.64 |
+|         532 | Bob        | Brown     |  57907.89 |
+|         469 | Alice      | Doe       |  57895.24 |
+|         286 | Alice      | Doe       |  57589.53 |
+|         963 | John       | Smith     |  57351.65 |
+|         564 | Charlie    | Brown     |  57327.40 |
+|         188 | Jane       | Doe       |  57308.97 |
+|           8 | Alice      | Brown     |  57236.99 |
+|         318 | Charlie    | Doe       |  57090.51 |
+|          48 | John       | Taylor    |  57073.54 |
+|         514 | Charlie    | Johnson   |  56963.50 |
+|         935 | Alice      | Taylor    |  56575.32 |
+|         377 | Jane       | Johnson   |  56250.17 |
+|         356 | Jane       | Smith     |  56129.62 |
+|         327 | Bob        | Johnson   |  56112.87 |
+|         822 | Bob        | Taylor    |  56098.53 |
+|         842 | Jane       | Doe       |  55925.57 |
+|         393 | Jane       | Taylor    |  55786.58 |
+|         980 | Charlie    | Smith     |  55512.21 |
+|         122 | Bob        | Brown     |  55373.35 |
+|         826 | Bob        | Brown     |  55146.41 |
+|         120 | John       | Taylor    |  55134.36 |
+|         986 | John       | Smith     |  55049.42 |
+|         164 | John       | Smith     |  54982.13 |
+|         179 | Jane       | Taylor    |  54792.30 |
+|         106 | Jane       | Smith     |  54784.96 |
+|         990 | Jane       | Doe       |  54710.39 |
+|         274 | Alice      | Doe       |  54564.32 |
+|         698 | Bob        | Brown     |  54537.87 |
+|           2 | Alice      | Johnson   |  54512.40 |
+|         857 | Charlie    | Taylor    |  54499.36 |
+|         541 | Alice      | Johnson   |  54414.75 |
+|         141 | Alice      | Smith     |  54404.97 |
+|         888 | Jane       | Johnson   |  54334.12 |
+|         326 | John       | Brown     |  54266.13 |
+|         611 | Bob        | Brown     |  54098.57 |
+|         296 | Charlie    | Doe       |  53682.24 |
+|         167 | Alice      | Doe       |  53658.01 |
+|         187 | John       | Taylor    |  53653.44 |
+|         613 | Charlie    | Brown     |  53458.12 |
+|         887 | Charlie    | Brown     |  53265.50 |
+|         416 | Jane       | Johnson   |  53222.91 |
+|         885 | Charlie    | Johnson   |  53155.74 |
+|         329 | Alice      | Brown     |  53155.52 |
+|          14 | Charlie    | Smith     |  53043.09 |
+|          91 | Bob        | Smith     |  52896.56 |
+|         906 | John       | Brown     |  52627.88 |
+|         852 | Bob        | Smith     |  52502.68 |
+|         460 | John       | Smith     |  52304.86 |
+|         548 | Charlie    | Doe       |  52246.76 |
+|         757 | Charlie    | Doe       |  52036.02 |
+|          56 | Charlie    | Taylor    |  51953.78 |
+|          24 | Charlie    | Taylor    |  51918.82 |
+|         878 | Alice      | Smith     |  51474.81 |
+|         923 | Alice      | Johnson   |  51437.90 |
+|         355 | Charlie    | Smith     |  51122.49 |
+|         755 | John       | Smith     |  51048.93 |
+|         680 | Bob        | Brown     |  50969.94 |
+|          86 | Charlie    | Johnson   |  50716.23 |
+|         719 | Bob        | Brown     |  50694.25 |
+|         984 | Alice      | Smith     |  50423.05 |
+|         365 | Alice      | Taylor    |  50417.20 |
+|         765 | Jane       | Johnson   |  50326.52 |
+|          13 | John       | Smith     |  50254.95 |
+|         656 | Alice      | Brown     |  50110.61 |
+|         989 | Charlie    | Doe       |  50004.73 |
+|          83 | John       | Doe       |  50003.96 |
++-------------+------------+-----------+-----------+
+357 rows in set (0.00 sec)
+
+mysql> 
+mysql> SELECT employee_id, CONCAT(first_name, ' ', last_name) AS full_name, hire_date
+    -> FROM Employees
+    -> WHERE hire_date BETWEEN '2012-01-01' AND '2018-12-31';
++-------------+-----------------+------------+
+| employee_id | full_name       | hire_date  |
++-------------+-----------------+------------+
+|           2 | Alice Johnson   | 2014-10-09 |
+|           6 | John Doe        | 2014-03-30 |
+|           8 | Alice Brown     | 2014-01-08 |
+|          13 | John Smith      | 2016-10-11 |
+|          25 | Bob Brown       | 2015-07-25 |
+|          29 | Alice Taylor    | 2018-09-16 |
+|          30 | Bob Smith       | 2014-06-08 |
+|          32 | Charlie Smith   | 2013-01-09 |
+|          36 | Jane Brown      | 2013-11-14 |
+|          38 | Jane Doe        | 2012-07-17 |
+|          39 | Charlie Johnson | 2013-01-12 |
+|          42 | John Johnson    | 2014-05-03 |
+|          43 | Bob Taylor      | 2018-12-13 |
+|          49 | Alice Smith     | 2018-11-06 |
+|          50 | Jane Brown      | 2012-11-15 |
+|          56 | Charlie Taylor  | 2018-11-18 |
+|          59 | Charlie Taylor  | 2012-04-16 |
+|          60 | Alice Johnson   | 2015-11-27 |
+|          62 | Bob Smith       | 2014-11-06 |
+|          67 | Charlie Johnson | 2015-04-14 |
+|          68 | Charlie Smith   | 2017-11-07 |
+|          70 | Charlie Doe     | 2016-10-16 |
+|          76 | Jane Johnson    | 2015-11-14 |
+|          82 | John Taylor     | 2014-09-20 |
+|          83 | John Doe        | 2016-08-08 |
+|          87 | Jane Smith      | 2015-05-29 |
+|          88 | John Johnson    | 2018-07-06 |
+|          89 | Bob Doe         | 2014-02-16 |
+|          91 | Bob Smith       | 2014-03-07 |
+|          93 | Charlie Smith   | 2016-02-12 |
+|          95 | Bob Brown       | 2012-01-06 |
+|          99 | Jane Smith      | 2013-03-13 |
+|         104 | Bob Johnson     | 2015-02-12 |
+|         106 | Jane Smith      | 2016-12-12 |
+|         109 | Alice Doe       | 2013-07-13 |
+|         111 | Jane Doe        | 2017-11-02 |
+|         120 | John Taylor     | 2012-10-01 |
+|         121 | Jane Johnson    | 2014-07-11 |
+|         123 | Alice Brown     | 2015-07-10 |
+|         124 | Alice Taylor    | 2015-05-28 |
+|         130 | Charlie Taylor  | 2017-01-14 |
+|         138 | Jane Doe        | 2018-06-05 |
+|         141 | Alice Smith     | 2014-11-26 |
+|         142 | Bob Doe         | 2013-01-09 |
+|         144 | Alice Johnson   | 2018-01-12 |
+|         149 | Jane Smith      | 2015-10-16 |
+|         152 | Charlie Johnson | 2016-01-22 |
+|         155 | John Taylor     | 2012-08-14 |
+|         161 | Jane Johnson    | 2017-01-16 |
+|         164 | John Smith      | 2017-04-18 |
+|         167 | Alice Doe       | 2017-11-16 |
+|         177 | Bob Johnson     | 2015-06-01 |
+|         180 | Bob Smith       | 2012-02-13 |
+|         184 | John Smith      | 2013-04-01 |
+|         188 | Jane Doe        | 2018-06-03 |
+|         193 | Charlie Taylor  | 2012-03-04 |
+|         194 | Jane Brown      | 2013-08-06 |
+|         201 | Bob Doe         | 2013-10-14 |
+|         207 | Bob Smith       | 2012-09-09 |
+|         212 | Charlie Taylor  | 2017-10-03 |
+|         218 | John Smith      | 2017-01-12 |
+|         222 | John Brown      | 2017-10-26 |
+|         223 | John Doe        | 2017-12-23 |
+|         224 | John Taylor     | 2017-08-04 |
+|         231 | Bob Smith       | 2013-12-03 |
+|         236 | John Brown      | 2012-10-07 |
+|         253 | John Taylor     | 2014-07-17 |
+|         259 | Alice Doe       | 2017-07-17 |
+|         264 | Charlie Taylor  | 2013-01-04 |
+|         271 | Charlie Smith   | 2015-12-11 |
+|         272 | Jane Johnson    | 2012-05-19 |
+|         277 | Jane Johnson    | 2016-08-03 |
+|         278 | John Smith      | 2016-07-20 |
+|         286 | Alice Doe       | 2015-02-22 |
+|         289 | Jane Taylor     | 2012-03-12 |
+|         290 | Bob Brown       | 2018-12-30 |
+|         291 | Jane Brown      | 2013-07-03 |
+|         293 | John Smith      | 2014-01-05 |
+|         295 | Bob Brown       | 2016-09-27 |
+|         296 | Charlie Doe     | 2015-02-25 |
+|         298 | Charlie Smith   | 2013-05-04 |
+|         302 | Jane Doe        | 2018-02-05 |
+|         303 | Bob Doe         | 2017-08-28 |
+|         304 | Jane Brown      | 2015-08-07 |
+|         305 | Alice Doe       | 2015-03-25 |
+|         320 | Bob Johnson     | 2017-11-08 |
+|         324 | Jane Johnson    | 2015-08-14 |
+|         326 | John Brown      | 2014-05-28 |
+|         329 | Alice Brown     | 2017-05-17 |
+|         333 | Charlie Doe     | 2016-02-16 |
+|         334 | Bob Brown       | 2015-02-27 |
+|         335 | John Brown      | 2018-07-18 |
+|         336 | Bob Doe         | 2017-08-09 |
+|         337 | Alice Doe       | 2016-07-07 |
+|         338 | John Smith      | 2018-02-06 |
+|         340 | Alice Taylor    | 2017-11-08 |
+|         344 | Alice Smith     | 2014-08-27 |
+|         347 | Charlie Brown   | 2014-12-17 |
+|         353 | Charlie Taylor  | 2017-02-11 |
+|         354 | Alice Doe       | 2017-10-22 |
+|         356 | Jane Smith      | 2017-11-26 |
+|         364 | Jane Doe        | 2012-04-20 |
+|         366 | Alice Brown     | 2017-06-15 |
+|         377 | Jane Johnson    | 2014-10-28 |
+|         378 | Bob Doe         | 2015-10-30 |
+|         382 | John Doe        | 2013-05-19 |
+|         384 | Charlie Johnson | 2012-03-08 |
+|         388 | Charlie Johnson | 2018-06-19 |
+|         393 | Jane Taylor     | 2014-03-03 |
+|         394 | Alice Doe       | 2015-09-30 |
+|         401 | Alice Doe       | 2015-10-27 |
+|         403 | Alice Taylor    | 2017-12-03 |
+|         405 | John Taylor     | 2018-01-27 |
+|         410 | Charlie Taylor  | 2015-01-02 |
+|         411 | Jane Johnson    | 2014-02-24 |
+|         416 | Jane Johnson    | 2012-06-25 |
+|         417 | Jane Brown      | 2017-05-12 |
+|         422 | Charlie Smith   | 2016-02-14 |
+|         425 | Bob Doe         | 2015-04-30 |
+|         426 | Alice Johnson   | 2012-07-08 |
+|         428 | Jane Doe        | 2018-11-26 |
+|         433 | Bob Doe         | 2013-11-19 |
+|         444 | Bob Doe         | 2013-01-25 |
+|         448 | Charlie Doe     | 2017-03-03 |
+|         449 | Bob Smith       | 2016-10-18 |
+|         460 | John Smith      | 2017-11-22 |
+|         462 | John Doe        | 2018-08-24 |
+|         463 | Alice Taylor    | 2015-08-17 |
+|         469 | Alice Doe       | 2014-12-01 |
+|         470 | Charlie Doe     | 2015-05-25 |
+|         485 | Jane Taylor     | 2014-03-26 |
+|         490 | Alice Brown     | 2012-01-27 |
+|         494 | John Johnson    | 2013-05-05 |
+|         498 | Charlie Taylor  | 2014-10-31 |
+|         499 | John Doe        | 2016-06-05 |
+|         513 | John Brown      | 2013-06-04 |
+|         514 | Charlie Johnson | 2017-06-08 |
+|         519 | Bob Johnson     | 2015-04-14 |
+|         524 | John Brown      | 2016-02-12 |
+|         525 | Jane Johnson    | 2016-11-22 |
+|         530 | Alice Doe       | 2014-12-26 |
+|         533 | Jane Doe        | 2016-07-19 |
+|         534 | John Doe        | 2014-02-04 |
+|         535 | Bob Johnson     | 2016-10-02 |
+|         540 | John Johnson    | 2017-07-23 |
+|         541 | Alice Johnson   | 2014-11-19 |
+|         551 | John Johnson    | 2017-12-09 |
+|         556 | Charlie Doe     | 2014-04-08 |
+|         557 | Alice Smith     | 2018-03-21 |
+|         559 | John Doe        | 2014-01-07 |
+|         560 | Alice Doe       | 2014-09-15 |
+|         564 | Charlie Brown   | 2012-11-01 |
+|         565 | Charlie Brown   | 2012-06-26 |
+|         570 | Alice Doe       | 2015-04-24 |
+|         575 | Bob Smith       | 2017-09-02 |
+|         577 | Alice Doe       | 2017-08-11 |
+|         579 | John Smith      | 2015-12-04 |
+|         585 | John Smith      | 2018-04-11 |
+|         588 | Alice Brown     | 2015-04-14 |
+|         596 | Charlie Taylor  | 2015-07-23 |
+|         606 | Alice Johnson   | 2013-04-26 |
+|         607 | Alice Brown     | 2012-12-24 |
+|         614 | Charlie Johnson | 2013-12-08 |
+|         618 | John Brown      | 2017-06-19 |
+|         620 | John Johnson    | 2017-10-09 |
+|         621 | Bob Johnson     | 2015-10-07 |
+|         622 | John Smith      | 2014-10-12 |
+|         623 | Alice Brown     | 2012-11-30 |
+|         626 | Jane Brown      | 2016-09-21 |
+|         627 | Jane Johnson    | 2013-04-25 |
+|         629 | Bob Doe         | 2014-07-27 |
+|         634 | Bob Taylor      | 2017-01-03 |
+|         637 | Jane Johnson    | 2018-04-22 |
+|         639 | John Smith      | 2012-02-12 |
+|         647 | Jane Brown      | 2015-10-05 |
+|         652 | Alice Johnson   | 2017-07-16 |
+|         656 | Alice Brown     | 2013-10-19 |
+|         662 | Charlie Brown   | 2013-02-16 |
+|         663 | John Brown      | 2013-10-18 |
+|         670 | John Smith      | 2012-09-05 |
+|         694 | Bob Brown       | 2014-03-29 |
+|         696 | Bob Taylor      | 2015-08-15 |
+|         698 | Bob Brown       | 2015-01-15 |
+|         706 | John Doe        | 2014-01-11 |
+|         716 | Charlie Doe     | 2014-12-31 |
+|         723 | Charlie Brown   | 2014-02-06 |
+|         724 | Charlie Smith   | 2015-09-03 |
+|         742 | Jane Brown      | 2014-04-06 |
+|         745 | John Johnson    | 2012-06-28 |
+|         746 | Alice Smith     | 2018-12-07 |
+|         750 | Alice Doe       | 2012-12-26 |
+|         751 | John Taylor     | 2016-03-11 |
+|         754 | Jane Brown      | 2016-11-22 |
+|         755 | John Smith      | 2012-01-04 |
+|         763 | Jane Taylor     | 2015-12-31 |
+|         764 | Charlie Smith   | 2018-06-11 |
+|         769 | Bob Taylor      | 2015-12-27 |
+|         777 | John Doe        | 2013-04-16 |
+|         778 | John Doe        | 2014-01-17 |
+|         781 | John Taylor     | 2012-03-29 |
+|         784 | Charlie Smith   | 2012-10-17 |
+|         787 | Jane Doe        | 2013-03-29 |
+|         788 | Bob Smith       | 2013-02-22 |
+|         789 | John Doe        | 2012-10-03 |
+|         798 | Jane Johnson    | 2015-02-11 |
+|         801 | Alice Doe       | 2018-03-30 |
+|         804 | Bob Smith       | 2016-11-17 |
+|         808 | Jane Taylor     | 2014-01-28 |
+|         812 | Jane Taylor     | 2015-11-08 |
+|         814 | John Brown      | 2012-10-30 |
+|         816 | Jane Taylor     | 2017-08-26 |
+|         817 | Bob Taylor      | 2016-01-01 |
+|         819 | Charlie Johnson | 2016-04-23 |
+|         826 | Bob Brown       | 2015-04-03 |
+|         828 | John Johnson    | 2018-11-05 |
+|         837 | Bob Taylor      | 2016-11-16 |
+|         846 | Bob Smith       | 2015-02-15 |
+|         850 | Alice Johnson   | 2016-11-04 |
+|         856 | Jane Doe        | 2012-05-20 |
+|         863 | Bob Smith       | 2013-01-12 |
+|         864 | Alice Doe       | 2017-08-21 |
+|         868 | Bob Brown       | 2017-12-29 |
+|         872 | John Taylor     | 2013-08-23 |
+|         875 | Alice Johnson   | 2016-01-15 |
+|         878 | Alice Smith     | 2015-01-26 |
+|         885 | Charlie Johnson | 2016-11-24 |
+|         891 | Alice Taylor    | 2015-10-15 |
+|         893 | Jane Brown      | 2014-08-31 |
+|         894 | Charlie Brown   | 2015-11-16 |
+|         895 | Bob Johnson     | 2012-10-07 |
+|         896 | Alice Taylor    | 2013-07-20 |
+|         898 | Alice Johnson   | 2016-05-18 |
+|         902 | Jane Taylor     | 2014-03-05 |
+|         904 | John Smith      | 2013-10-07 |
+|         905 | Charlie Smith   | 2012-05-08 |
+|         914 | Jane Johnson    | 2017-08-29 |
+|         920 | Alice Brown     | 2017-03-12 |
+|         921 | John Taylor     | 2013-10-16 |
+|         922 | John Johnson    | 2017-08-01 |
+|         926 | Bob Taylor      | 2013-08-02 |
+|         929 | John Smith      | 2016-04-23 |
+|         931 | Jane Smith      | 2017-06-25 |
+|         932 | Alice Taylor    | 2013-10-20 |
+|         934 | Bob Doe         | 2018-06-06 |
+|         937 | Charlie Doe     | 2014-08-03 |
+|         938 | Bob Brown       | 2017-06-17 |
+|         939 | Alice Brown     | 2014-05-04 |
+|         943 | Alice Taylor    | 2014-02-23 |
+|         944 | Jane Smith      | 2013-05-17 |
+|         945 | Charlie Johnson | 2013-02-02 |
+|         947 | Jane Johnson    | 2015-02-27 |
+|         950 | John Taylor     | 2015-12-09 |
+|         951 | John Brown      | 2013-03-19 |
+|         952 | John Johnson    | 2016-06-20 |
+|         963 | John Smith      | 2018-08-29 |
+|         966 | Alice Taylor    | 2014-06-05 |
+|         967 | John Smith      | 2012-07-14 |
+|         969 | John Taylor     | 2012-12-24 |
+|         971 | Jane Smith      | 2015-04-02 |
+|         977 | Charlie Johnson | 2016-10-05 |
+|         979 | John Doe        | 2016-03-19 |
+|         980 | Charlie Smith   | 2018-02-25 |
+|         983 | John Doe        | 2016-05-09 |
+|         989 | Charlie Doe     | 2013-10-09 |
+|        1000 | Alice Taylor    | 2013-10-15 |
++-------------+-----------------+------------+
+265 rows in set (0.00 sec)
+
+mysql> 
+mysql> SELECT employee_id, email
+    -> FROM Employees
+    -> WHERE email LIKE '%@example.com';
++-------------+----------------------+
+| employee_id | email                |
++-------------+----------------------+
+|           2 | 7cc308d1@example.com |
+|           3 | 7cc31344@example.com |
+|           5 | 7cc3159b@example.com |
+|           6 | 7cc31b74@example.com |
+|           8 | 7cc31fd1@example.com |
+|          11 | 7cc32264@example.com |
+|          12 | 7cc32310@example.com |
+|          13 | 7cc323da@example.com |
+|          14 | 7cc324a6@example.com |
+|          15 | 7cc3254c@example.com |
+|          16 | 7cc325ec@example.com |
+|          19 | 7cc32800@example.com |
+|          21 | 7cc329c8@example.com |
+|          24 | 7cc32bd3@example.com |
+|          25 | 7cc32c76@example.com |
+|          29 | 7cc32eff@example.com |
+|          30 | 7cc32fa1@example.com |
+|          32 | 7cc330df@example.com |
+|          34 | 7cc33224@example.com |
+|          35 | 7cc332d4@example.com |
+|          36 | 7cc33378@example.com |
+|          38 | 7cc335a9@example.com |
+|          39 | 7cc336b1@example.com |
+|          42 | 7cc339c5@example.com |
+|          43 | 7cc33ace@example.com |
+|          48 | 7cc342e6@example.com |
+|          49 | 7cc343f9@example.com |
+|          50 | 7cc344fe@example.com |
+|          52 | 7cc34732@example.com |
+|          53 | 7cc34859@example.com |
+|          56 | 7cc34b66@example.com |
+|          59 | 7cc34e5a@example.com |
+|          60 | 7cc34f69@example.com |
+|          62 | 7cc351b2@example.com |
+|          67 | 7cc356df@example.com |
+|          68 | 7cc357ff@example.com |
+|          70 | 7cc35a22@example.com |
+|          71 | 7cc35b1b@example.com |
+|          72 | 7cc35d09@example.com |
+|          74 | 7cc35e59@example.com |
+|          76 | 7cc35fd3@example.com |
+|          77 | 7cc360e6@example.com |
+|          79 | 7cc362ee@example.com |
+|          80 | 7cc363ee@example.com |
+|          82 | 7cc36637@example.com |
+|          83 | 7cc36729@example.com |
+|          86 | 7cc36a52@example.com |
+|          87 | 7cc36b59@example.com |
+|          88 | 7cc36c74@example.com |
+|          89 | 7cc36d9d@example.com |
+|          91 | 7cc3705c@example.com |
+|          93 | 7cc372a3@example.com |
+|          95 | 7cc37a5d@example.com |
+|          99 | 7cc385f2@example.com |
+|         101 | 7cc387ca@example.com |
+|         103 | 7cc38959@example.com |
+|         104 | 7cc38a02@example.com |
+|         105 | 7cc38aaa@example.com |
+|         106 | 7cc38b50@example.com |
+|         109 | 7cc38d3d@example.com |
+|         110 | 7cc38dde@example.com |
+|         111 | 7cc38e80@example.com |
+|         113 | 7cc38fcb@example.com |
+|         114 | 7cc3906c@example.com |
+|         115 | 7cc3910e@example.com |
+|         120 | 7cc3942c@example.com |
+|         121 | 7cc394d1@example.com |
+|         122 | 7cc39572@example.com |
+|         123 | 7cc3965e@example.com |
+|         124 | 7cc3972d@example.com |
+|         130 | 7cc39b53@example.com |
+|         131 | 7cc39bf0@example.com |
+|         132 | 7cc39c8f@example.com |
+|         136 | 7cc3a486@example.com |
+|         138 | 7cc3a63b@example.com |
+|         139 | 7cc3a6dd@example.com |
+|         141 | 7cc3a81d@example.com |
+|         142 | 7cc3a8bb@example.com |
+|         143 | 7cc3a95a@example.com |
+|         144 | 7cc3a9fa@example.com |
+|         145 | 7cc3aa9c@example.com |
+|         149 | 7cc3adc8@example.com |
+|         151 | 7cc3af23@example.com |
+|         152 | 7cc3afc8@example.com |
+|         153 | 7cc3b06b@example.com |
+|         155 | 7cc3b1a8@example.com |
+|         161 | 7cc3b578@example.com |
+|         164 | 7cc3b761@example.com |
+|         165 | 7cc3b800@example.com |
+|         166 | 7cc3b89c@example.com |
+|         167 | 7cc3b93a@example.com |
+|         168 | 7cc3b9dc@example.com |
+|         169 | 7cc3ba89@example.com |
+|         175 | 7cc3be89@example.com |
+|         176 | 7cc3bf2e@example.com |
+|         177 | 7cc3bfcc@example.com |
+|         178 | 7cc3c06a@example.com |
+|         179 | 7cc3c10c@example.com |
+|         180 | 7cc3c1bd@example.com |
+|         184 | 7cc3c569@example.com |
+|         187 | 7cc3c75b@example.com |
+|         188 | 7cc3c7f8@example.com |
+|         193 | 7cc3cb7c@example.com |
+|         194 | 7cc3cc23@example.com |
+|         196 | 7cc3cd60@example.com |
+|         197 | 7cc3cdfd@example.com |
+|         201 | 7cc43f25@example.com |
+|         202 | 7cc43fd1@example.com |
+|         205 | 7cc4420a@example.com |
+|         207 | 7cc44400@example.com |
+|         208 | 7cc444c7@example.com |
+|         210 | 7cc4466a@example.com |
+|         212 | 7cc4479a@example.com |
+|         213 | 7cc4481c@example.com |
+|         214 | 7cc4489c@example.com |
+|         218 | 7cc44b14@example.com |
+|         222 | 7cc44d86@example.com |
+|         223 | 7cc44e22@example.com |
+|         224 | 7cc44ebc@example.com |
+|         226 | 7cc44ff2@example.com |
+|         227 | 7cc4508e@example.com |
+|         230 | 7cc45263@example.com |
+|         231 | 7cc452fc@example.com |
+|         236 | 7cc45602@example.com |
+|         237 | 7cc456b4@example.com |
+|         242 | 7cc459bc@example.com |
+|         244 | 7cc45aee@example.com |
+|         253 | 7cc46066@example.com |
+|         254 | 7cc460fd@example.com |
+|         255 | 7cc4619d@example.com |
+|         259 | 7cc46428@example.com |
+|         262 | 7cc465f8@example.com |
+|         263 | 7cc46691@example.com |
+|         264 | 7cc46729@example.com |
+|         265 | 7cc467c5@example.com |
+|         266 | 7cc4685d@example.com |
+|         271 | 7cc46d94@example.com |
+|         272 | 7cc46e32@example.com |
+|         274 | 7cc4700e@example.com |
+|         277 | 7cc4720c@example.com |
+|         278 | 7cc472a4@example.com |
+|         283 | 7cc475b4@example.com |
+|         286 | 7cc477c2@example.com |
+|         287 | 7cc47860@example.com |
+|         289 | 7cc47995@example.com |
+|         290 | 7cc47a32@example.com |
+|         291 | 7cc47ace@example.com |
+|         293 | 7cc47ca3@example.com |
+|         295 | 7cc47ea4@example.com |
+|         296 | 7cc4af92@example.com |
+|         297 | 7cc4b1e2@example.com |
+|         298 | 7cc4b2b7@example.com |
+|         299 | 7cc4b375@example.com |
+|         302 | 7cc4b5ac@example.com |
+|         303 | 7cc4b652@example.com |
+|         304 | 7cc4b70b@example.com |
+|         305 | 7cc4b7c2@example.com |
+|         313 | 7cc4bd7d@example.com |
+|         316 | 7cc4bf5f@example.com |
+|         317 | 7cc4bfff@example.com |
+|         318 | 7cc4c09f@example.com |
+|         320 | 7cc4c1dc@example.com |
+|         322 | 7cc4c32d@example.com |
+|         323 | 7cc4c3cf@example.com |
+|         324 | 7cc4c46e@example.com |
+|         326 | 7cc4c5a6@example.com |
+|         327 | 7cc4c644@example.com |
+|         329 | 7cc4c781@example.com |
+|         333 | 7cc4c9ff@example.com |
+|         334 | 7cc4ca9f@example.com |
+|         335 | 7cc4cb43@example.com |
+|         336 | 7cc4cbde@example.com |
+|         337 | 7cc4cc7c@example.com |
+|         338 | 7cc4cda9@example.com |
+|         340 | 7cc4d3b1@example.com |
+|         342 | 7cc4d63b@example.com |
+|         343 | 7cc4d716@example.com |
+|         344 | 7cc4d7ec@example.com |
+|         347 | 7cc4dd00@example.com |
+|         352 | 7cc4e174@example.com |
+|         353 | 7cc4e254@example.com |
+|         354 | 7cc4e33a@example.com |
+|         355 | 7cc4e422@example.com |
+|         356 | 7cc4e50d@example.com |
+|         360 | 7cc4e93c@example.com |
+|         362 | 7cc4eb1b@example.com |
+|         364 | 7cc4ee6a@example.com |
+|         365 | 7cc4ef68@example.com |
+|         366 | 7cc4f060@example.com |
+|         377 | 7cc4fbba@example.com |
+|         378 | 7cc4fcc4@example.com |
+|         382 | 7cc500a4@example.com |
+|         384 | 7cc5029a@example.com |
+|         385 | 7cc507ad@example.com |
+|         388 | 7cc50af3@example.com |
+|         389 | 7cc50bfe@example.com |
+|         393 | 7cc5177c@example.com |
+|         394 | 7cc51885@example.com |
+|         397 | 7cc51bb0@example.com |
+|         401 | 7cc520d5@example.com |
+|         403 | 7cc522d6@example.com |
+|         404 | 7cc523de@example.com |
+|         405 | 7cc5263a@example.com |
+|         410 | 7cc52b76@example.com |
+|         411 | 7cc52c84@example.com |
+|         416 | 7cc531d0@example.com |
+|         417 | 7cc532e5@example.com |
+|         418 | 7cc53481@example.com |
+|         420 | 7cc536a5@example.com |
+|         422 | 7cc53d7d@example.com |
+|         425 | 7cc54094@example.com |
+|         426 | 7cc54181@example.com |
+|         427 | 7cc54278@example.com |
+|         428 | 7cc54373@example.com |
+|         429 | 7cc5446d@example.com |
+|         432 | 7cc54744@example.com |
+|         433 | 7cc54870@example.com |
+|         434 | 7cc5498a@example.com |
+|         444 | 7cc5586d@example.com |
+|         445 | 7cc55960@example.com |
+|         446 | 7cc55a52@example.com |
+|         448 | 7cc55c3c@example.com |
+|         449 | 7cc55d61@example.com |
+|         453 | 7cc56194@example.com |
+|         454 | 7cc56280@example.com |
+|         455 | 7cc5636f@example.com |
+|         456 | 7cc564c6@example.com |
+|         460 | 7cc568e1@example.com |
+|         462 | 7cc56aef@example.com |
+|         463 | 7cc56bec@example.com |
+|         464 | 7cc56cdd@example.com |
+|         465 | 7cc56dbc@example.com |
+|         469 | 7cc5703f@example.com |
+|         470 | 7cc570e0@example.com |
+|         471 | 7cc57187@example.com |
+|         476 | 7cc574d2@example.com |
+|         479 | 7cc576b4@example.com |
+|         482 | 7cc57894@example.com |
+|         483 | 7cc57935@example.com |
+|         485 | 7cc57a79@example.com |
+|         487 | 7cc57bbb@example.com |
+|         489 | 7cc57e61@example.com |
+|         490 | 7cc57f04@example.com |
+|         491 | 7cc57fa3@example.com |
+|         492 | 7cc58043@example.com |
+|         493 | 7cc580e0@example.com |
+|         494 | 7cc5b8b5@example.com |
+|         498 | 7cc5bec9@example.com |
+|         499 | 7cc5bfad@example.com |
+|         502 | 7cc5c24c@example.com |
+|         503 | 7cc5c434@example.com |
+|         508 | 7cc5c9c0@example.com |
+|         512 | 7cc5cde5@example.com |
+|         513 | 7cc5cf11@example.com |
+|         514 | 7cc5d03e@example.com |
+|         519 | 7cc5d7b6@example.com |
+|         524 | 7cc5dd4c@example.com |
+|         525 | 7cc5dea1@example.com |
+|         526 | 7cc5dfa3@example.com |
+|         530 | 7cc5e3c1@example.com |
+|         532 | 7cc5e5cf@example.com |
+|         533 | 7cc5e6da@example.com |
+|         534 | 7cc5e7dd@example.com |
+|         535 | 7cc5e8d1@example.com |
+|         540 | 7cc68d92@example.com |
+|         541 | 7cc691fd@example.com |
+|         545 | 7cc69b7e@example.com |
+|         548 | 7cc69e42@example.com |
+|         549 | 7cc6a19a@example.com |
+|         551 | 7cc6a651@example.com |
+|         552 | 7cc6a726@example.com |
+|         556 | 7cc6a9a1@example.com |
+|         557 | 7cc6aa3a@example.com |
+|         559 | 7cc6ab55@example.com |
+|         560 | 7cc6abe2@example.com |
+|         564 | 7cc6ae5b@example.com |
+|         565 | 7cc6aee9@example.com |
+|         566 | 7cc6af78@example.com |
+|         568 | 7cc6b47e@example.com |
+|         570 | 7cc6b826@example.com |
+|         575 | 7cc6bc67@example.com |
+|         577 | 7cc6bee2@example.com |
+|         579 | 7cc6c0a1@example.com |
+|         585 | 7cc6c5cc@example.com |
+|         586 | 7cc6ca16@example.com |
+|         588 | 7cc6cc3a@example.com |
+|         594 | 7cc6cf92@example.com |
+|         596 | 7cc6d09a@example.com |
+|         601 | 7cc6d364@example.com |
+|         603 | 7cc6d472@example.com |
+|         606 | 7cc6d5f8@example.com |
+|         607 | 7cc6d772@example.com |
+|         610 | 7cc6d8fe@example.com |
+|         611 | 7cc6d980@example.com |
+|         612 | 7cc6da01@example.com |
+|         613 | 7cc6db41@example.com |
+|         614 | 7cc6dbdd@example.com |
+|         615 | 7cc6dc77@example.com |
+|         616 | 7cc6dd15@example.com |
+|         617 | 7cc6ddb3@example.com |
+|         618 | 7cc6de50@example.com |
+|         620 | 7cc6df89@example.com |
+|         621 | 7cc6e029@example.com |
+|         622 | 7cc6e0ca@example.com |
+|         623 | 7cc6e16b@example.com |
+|         625 | 7cc6e2a8@example.com |
+|         626 | 7cc6e346@example.com |
+|         627 | 7cc6e3e2@example.com |
+|         628 | 7cc6e480@example.com |
+|         629 | 7cc6e51e@example.com |
+|         630 | 7cc6e5bb@example.com |
+|         633 | 7cc6e792@example.com |
+|         634 | 7cc6e833@example.com |
+|         637 | 7cc6ea19@example.com |
+|         639 | 7cc6eb5a@example.com |
+|         645 | 7cc6f056@example.com |
+|         647 | 7cc6f190@example.com |
+|         652 | 7cc6f4a8@example.com |
+|         653 | 7cc6f549@example.com |
+|         656 | 7cc6f727@example.com |
+|         657 | 7cc6f7c7@example.com |
+|         658 | 7cc6f867@example.com |
+|         662 | 7cc6fadc@example.com |
+|         663 | 7cc6fb82@example.com |
+|         664 | 7cc6fc1f@example.com |
+|         670 | 7cc6ffd8@example.com |
+|         671 | 7cc70077@example.com |
+|         675 | 7cc703a6@example.com |
+|         679 | 7cc70620@example.com |
+|         680 | 7cc706bc@example.com |
+|         681 | 7cc7075d@example.com |
+|         683 | 7cc708b4@example.com |
+|         685 | 7cc709fc@example.com |
+|         687 | 7cc70b42@example.com |
+|         688 | 7cc70be9@example.com |
+|         689 | 7cc70cc0@example.com |
+|         690 | 7cc73872@example.com |
+|         692 | 7cc73cc6@example.com |
+|         694 | 7cc73e30@example.com |
+|         696 | 7cc73f75@example.com |
+|         698 | 7cc740b8@example.com |
+|         703 | 7cc743f8@example.com |
+|         704 | 7cc74496@example.com |
+|         706 | 7cc745cd@example.com |
+|         707 | 7cc74668@example.com |
+|         708 | 7cc74717@example.com |
+|         709 | 7cc747b9@example.com |
+|         713 | 7cc74a2e@example.com |
+|         714 | 7cc74aca@example.com |
+|         716 | 7cc74c04@example.com |
+|         719 | 7cc74de5@example.com |
+|         723 | 7cc75058@example.com |
+|         724 | 7cc750f3@example.com |
+|         728 | 7cc75377@example.com |
+|         734 | 7cc75723@example.com |
+|         736 | 7cc7585f@example.com |
+|         737 | 7cc75900@example.com |
+|         740 | 7cc75ad9@example.com |
+|         742 | 7cc75c1e@example.com |
+|         745 | 7cc75e04@example.com |
+|         746 | 7cc75ea0@example.com |
+|         748 | 7cc76090@example.com |
+|         750 | 7cc761c9@example.com |
+|         751 | 7cc76267@example.com |
+|         754 | 7cc76445@example.com |
+|         755 | 7cc764de@example.com |
+|         756 | 7cc76576@example.com |
+|         757 | 7cc76610@example.com |
+|         758 | 7cc766af@example.com |
+|         760 | 7cc767e8@example.com |
+|         763 | 7cc769de@example.com |
+|         764 | 7cc76a77@example.com |
+|         765 | 7cc76b15@example.com |
+|         766 | 7cc76bb4@example.com |
+|         769 | 7cc76d8a@example.com |
+|         774 | 7cc77093@example.com |
+|         776 | 7cc77262@example.com |
+|         777 | 7cc772ff@example.com |
+|         778 | 7cc7739f@example.com |
+|         779 | 7cc77536@example.com |
+|         780 | 7cc775fa@example.com |
+|         781 | 7cc77698@example.com |
+|         782 | 7cc77733@example.com |
+|         784 | 7cc7786b@example.com |
+|         786 | 7cc779a1@example.com |
+|         787 | 7cc77a3e@example.com |
+|         788 | 7cc77ad9@example.com |
+|         789 | 7cc77b76@example.com |
+|         792 | 7cc77d4b@example.com |
+|         794 | 7cc77e83@example.com |
+|         797 | 7cc7805e@example.com |
+|         798 | 7cc7816f@example.com |
+|         799 | 7cc7820a@example.com |
+|         801 | 7cc7834a@example.com |
+|         804 | 7cc7852b@example.com |
+|         805 | 7cc785cd@example.com |
+|         808 | 7cc7879a@example.com |
+|         812 | 7cc78e9a@example.com |
+|         814 | 7cc78fd7@example.com |
+|         815 | 7cc79083@example.com |
+|         816 | 7cc79125@example.com |
+|         817 | 7cc791c6@example.com |
+|         819 | 7cc792ff@example.com |
+|         820 | 7cc793a5@example.com |
+|         822 | 7cc794e6@example.com |
+|         823 | 7cc79585@example.com |
+|         825 | 7cc796d8@example.com |
+|         826 | 7cc7977d@example.com |
+|         828 | 7cc798c3@example.com |
+|         829 | 7cc79966@example.com |
+|         830 | 7cc79a06@example.com |
+|         837 | 7cc79e75@example.com |
+|         839 | 7cc79fa9@example.com |
+|         842 | 7cc7a192@example.com |
+|         846 | 7cc7a415@example.com |
+|         847 | 7cc7a4b4@example.com |
+|         848 | 7cc7a556@example.com |
+|         850 | 7cc7a6c2@example.com |
+|         852 | 7cc7a802@example.com |
+|         853 | 7cc7a8ac@example.com |
+|         856 | 7cc7aa8f@example.com |
+|         857 | 7cc7ab2e@example.com |
+|         858 | 7cc7abd0@example.com |
+|         859 | 7cc7ac84@example.com |
+|         863 | 7cc7b161@example.com |
+|         864 | 7cc7b28f@example.com |
+|         867 | 7cc7b94b@example.com |
+|         868 | 7cc7baff@example.com |
+|         871 | 7cc7bd0b@example.com |
+|         872 | 7cc7bda9@example.com |
+|         875 | 7cc7bf78@example.com |
+|         876 | 7cc7c019@example.com |
+|         877 | 7cc7c0d4@example.com |
+|         878 | 7cc7c16e@example.com |
+|         881 | 7cc7c345@example.com |
+|         882 | 7cc7c3e0@example.com |
+|         884 | 7cc7c50f@example.com |
+|         885 | 7cc7c5aa@example.com |
+|         887 | 7cc7c6d9@example.com |
+|         888 | 7cc7f31b@example.com |
+|         891 | 7cc7f72f@example.com |
+|         893 | 7cc7f8b1@example.com |
+|         894 | 7cc7f91f@example.com |
+|         895 | 7cc7f98a@example.com |
+|         896 | 7cc7fa27@example.com |
+|         898 | 7cc7fb57@example.com |
+|         901 | 7cc7fdb5@example.com |
+|         902 | 7cc7fe83@example.com |
+|         904 | 7cc7ff83@example.com |
+|         905 | 7cc7ffe2@example.com |
+|         906 | 7cc80064@example.com |
+|         908 | 7cc801a8@example.com |
+|         909 | 7cc80242@example.com |
+|         912 | 7cc8042f@example.com |
+|         914 | 7cc80569@example.com |
+|         915 | 7cc80604@example.com |
+|         916 | 7cc806a4@example.com |
+|         920 | 7cc80b41@example.com |
+|         921 | 7cc80be5@example.com |
+|         922 | 7cc80c82@example.com |
+|         923 | 7cc80d1d@example.com |
+|         926 | 7cc80f1b@example.com |
+|         927 | 7cc80fb8@example.com |
+|         929 | 7cc810ec@example.com |
+|         930 | 7cc81185@example.com |
+|         931 | 7cc8121f@example.com |
+|         932 | 7cc812b8@example.com |
+|         933 | 7cc81352@example.com |
+|         934 | 7cc813e9@example.com |
+|         935 | 7cc81483@example.com |
+|         937 | 7cc81912@example.com |
+|         938 | 7cc81b1d@example.com |
+|         939 | 7cc81be1@example.com |
+|         941 | 7cc81d2c@example.com |
+|         943 | 7cc81e68@example.com |
+|         944 | 7cc81fe0@example.com |
+|         945 | 7cc8208a@example.com |
+|         947 | 7cc821c1@example.com |
+|         950 | 7cc82392@example.com |
+|         951 | 7cc8242e@example.com |
+|         952 | 7cc824c9@example.com |
+|         955 | 7cc82698@example.com |
+|         956 | 7cc82733@example.com |
+|         960 | 7cc82bf8@example.com |
+|         963 | 7cc82eaf@example.com |
+|         965 | 7cc82ff3@example.com |
+|         966 | 7cc83094@example.com |
+|         967 | 7cc83138@example.com |
+|         969 | 7cc83279@example.com |
+|         971 | 7cc833ba@example.com |
+|         973 | 7cc83520@example.com |
+|         974 | 7cc835be@example.com |
+|         977 | 7cc837b4@example.com |
+|         978 | 7cc83855@example.com |
+|         979 | 7cc83e9a@example.com |
+|         980 | 7cc83f8c@example.com |
+|         982 | 7cc840db@example.com |
+|         983 | 7cc84178@example.com |
+|         984 | 7cc84213@example.com |
+|         986 | 7cc8434e@example.com |
+|         987 | 7cc843eb@example.com |
+|         988 | 7cc84487@example.com |
+|         989 | 7cc84524@example.com |
+|         990 | 7cc845c4@example.com |
+|         991 | 7cc8465d@example.com |
+|         999 | 7cc84b48@example.com |
+|        1000 | 7cc84be1@example.com |
++-------------+----------------------+
+507 rows in set (0.00 sec)
+
+mysql> 
+mysql> SELECT employee_id, first_name, last_name
+    -> FROM Employees
+    -> WHERE first_name LIKE 'J%';
++-------------+------------+-----------+
+| employee_id | first_name | last_name |
++-------------+------------+-----------+
+|           5 | Jane       | Brown     |
+|           6 | John       | Doe       |
+|          13 | John       | Smith     |
+|          15 | John       | Johnson   |
+|          19 | John       | Brown     |
+|          21 | Jane       | Johnson   |
+|          34 | John       | Johnson   |
+|          35 | John       | Doe       |
+|          36 | Jane       | Brown     |
+|          38 | Jane       | Doe       |
+|          42 | John       | Johnson   |
+|          48 | John       | Taylor    |
+|          50 | Jane       | Brown     |
+|          71 | Jane       | Brown     |
+|          76 | Jane       | Johnson   |
+|          77 | John       | Brown     |
+|          79 | Jane       | Smith     |
+|          80 | Jane       | Johnson   |
+|          82 | John       | Taylor    |
+|          83 | John       | Doe       |
+|          87 | Jane       | Smith     |
+|          88 | John       | Johnson   |
+|          99 | Jane       | Smith     |
+|         101 | Jane       | Johnson   |
+|         103 | Jane       | Smith     |
+|         106 | Jane       | Smith     |
+|         110 | Jane       | Brown     |
+|         111 | Jane       | Doe       |
+|         115 | John       | Johnson   |
+|         120 | John       | Taylor    |
+|         121 | Jane       | Johnson   |
+|         131 | Jane       | Johnson   |
+|         138 | Jane       | Doe       |
+|         139 | John       | Johnson   |
+|         143 | Jane       | Doe       |
+|         149 | Jane       | Smith     |
+|         153 | John       | Brown     |
+|         155 | John       | Taylor    |
+|         161 | Jane       | Johnson   |
+|         164 | John       | Smith     |
+|         165 | John       | Doe       |
+|         168 | Jane       | Smith     |
+|         179 | Jane       | Taylor    |
+|         184 | John       | Smith     |
+|         187 | John       | Taylor    |
+|         188 | Jane       | Doe       |
+|         194 | Jane       | Brown     |
+|         210 | John       | Brown     |
+|         213 | Jane       | Doe       |
+|         218 | John       | Smith     |
+|         222 | John       | Brown     |
+|         223 | John       | Doe       |
+|         224 | John       | Taylor    |
+|         226 | John       | Johnson   |
+|         236 | John       | Brown     |
+|         242 | John       | Johnson   |
+|         253 | John       | Taylor    |
+|         254 | John       | Brown     |
+|         262 | Jane       | Johnson   |
+|         263 | John       | Johnson   |
+|         265 | John       | Johnson   |
+|         272 | Jane       | Johnson   |
+|         277 | Jane       | Johnson   |
+|         278 | John       | Smith     |
+|         283 | Jane       | Brown     |
+|         289 | Jane       | Taylor    |
+|         291 | Jane       | Brown     |
+|         293 | John       | Smith     |
+|         302 | Jane       | Doe       |
+|         304 | Jane       | Brown     |
+|         323 | John       | Taylor    |
+|         324 | Jane       | Johnson   |
+|         326 | John       | Brown     |
+|         335 | John       | Brown     |
+|         338 | John       | Smith     |
+|         342 | John       | Smith     |
+|         356 | Jane       | Smith     |
+|         362 | Jane       | Doe       |
+|         364 | Jane       | Doe       |
+|         377 | Jane       | Johnson   |
+|         382 | John       | Doe       |
+|         389 | John       | Johnson   |
+|         393 | Jane       | Taylor    |
+|         397 | Jane       | Brown     |
+|         404 | Jane       | Taylor    |
+|         405 | John       | Taylor    |
+|         411 | Jane       | Johnson   |
+|         416 | Jane       | Johnson   |
+|         417 | Jane       | Brown     |
+|         428 | Jane       | Doe       |
+|         429 | Jane       | Smith     |
+|         434 | Jane       | Doe       |
+|         445 | John       | Taylor    |
+|         456 | John       | Smith     |
+|         460 | John       | Smith     |
+|         462 | John       | Doe       |
+|         464 | John       | Johnson   |
+|         465 | Jane       | Taylor    |
+|         483 | Jane       | Taylor    |
+|         485 | Jane       | Taylor    |
+|         487 | Jane       | Johnson   |
+|         491 | John       | Johnson   |
+|         493 | John       | Doe       |
+|         494 | John       | Johnson   |
+|         499 | John       | Doe       |
+|         502 | Jane       | Johnson   |
+|         503 | Jane       | Brown     |
+|         513 | John       | Brown     |
+|         524 | John       | Brown     |
+|         525 | Jane       | Johnson   |
+|         533 | Jane       | Doe       |
+|         534 | John       | Doe       |
+|         540 | John       | Johnson   |
+|         545 | John       | Brown     |
+|         551 | John       | Johnson   |
+|         552 | Jane       | Doe       |
+|         559 | John       | Doe       |
+|         566 | Jane       | Smith     |
+|         579 | John       | Smith     |
+|         585 | John       | Smith     |
+|         601 | John       | Doe       |
+|         603 | John       | Brown     |
+|         618 | John       | Brown     |
+|         620 | John       | Johnson   |
+|         622 | John       | Smith     |
+|         626 | Jane       | Brown     |
+|         627 | Jane       | Johnson   |
+|         633 | John       | Taylor    |
+|         637 | Jane       | Johnson   |
+|         639 | John       | Smith     |
+|         647 | Jane       | Brown     |
+|         653 | Jane       | Doe       |
+|         663 | John       | Brown     |
+|         664 | Jane       | Smith     |
+|         670 | John       | Smith     |
+|         681 | John       | Brown     |
+|         685 | John       | Taylor    |
+|         689 | John       | Taylor    |
+|         690 | John       | Doe       |
+|         706 | John       | Doe       |
+|         707 | Jane       | Smith     |
+|         734 | John       | Johnson   |
+|         736 | John       | Brown     |
+|         737 | John       | Brown     |
+|         742 | Jane       | Brown     |
+|         745 | John       | Johnson   |
+|         751 | John       | Taylor    |
+|         754 | Jane       | Brown     |
+|         755 | John       | Smith     |
+|         756 | John       | Doe       |
+|         758 | John       | Taylor    |
+|         763 | Jane       | Taylor    |
+|         765 | Jane       | Johnson   |
+|         777 | John       | Doe       |
+|         778 | John       | Doe       |
+|         780 | John       | Johnson   |
+|         781 | John       | Taylor    |
+|         782 | John       | Smith     |
+|         787 | Jane       | Doe       |
+|         789 | John       | Doe       |
+|         792 | Jane       | Doe       |
+|         797 | John       | Johnson   |
+|         798 | Jane       | Johnson   |
+|         805 | John       | Doe       |
+|         808 | Jane       | Taylor    |
+|         812 | Jane       | Taylor    |
+|         814 | John       | Brown     |
+|         815 | John       | Doe       |
+|         816 | Jane       | Taylor    |
+|         823 | John       | Johnson   |
+|         828 | John       | Johnson   |
+|         829 | Jane       | Smith     |
+|         842 | Jane       | Doe       |
+|         848 | Jane       | Taylor    |
+|         856 | Jane       | Doe       |
+|         858 | John       | Taylor    |
+|         872 | John       | Taylor    |
+|         877 | John       | Smith     |
+|         881 | Jane       | Johnson   |
+|         882 | John       | Brown     |
+|         888 | Jane       | Johnson   |
+|         893 | Jane       | Brown     |
+|         902 | Jane       | Taylor    |
+|         904 | John       | Smith     |
+|         906 | John       | Brown     |
+|         909 | John       | Taylor    |
+|         914 | Jane       | Johnson   |
+|         915 | Jane       | Brown     |
+|         916 | John       | Brown     |
+|         921 | John       | Taylor    |
+|         922 | John       | Johnson   |
+|         927 | Jane       | Doe       |
+|         929 | John       | Smith     |
+|         930 | Jane       | Smith     |
+|         931 | Jane       | Smith     |
+|         933 | John       | Brown     |
+|         944 | Jane       | Smith     |
+|         947 | Jane       | Johnson   |
+|         950 | John       | Taylor    |
+|         951 | John       | Brown     |
+|         952 | John       | Johnson   |
+|         963 | John       | Smith     |
+|         967 | John       | Smith     |
+|         969 | John       | Taylor    |
+|         971 | Jane       | Smith     |
+|         978 | Jane       | Smith     |
+|         979 | John       | Doe       |
+|         982 | Jane       | Doe       |
+|         983 | John       | Doe       |
+|         986 | John       | Smith     |
+|         987 | Jane       | Smith     |
+|         990 | Jane       | Doe       |
+|         991 | Jane       | Doe       |
+|         999 | Jane       | Taylor    |
++-------------+------------+-----------+
+214 rows in set (0.00 sec)
+
+mysql> 
+mysql> SELECT department, COUNT(*) AS num_employees, ROUND(AVG(salary),2) AS avg_salary
+    -> FROM Employees
+    -> GROUP BY department;
++-------------+---------------+------------+
+| department  | num_employees | avg_salary |
++-------------+---------------+------------+
+| Sales       |           110 |   66254.95 |
+| Finance     |           102 |   66636.14 |
+| Marketing   |           104 |   64854.71 |
+| HR          |            96 |   62636.34 |
+| Engineering |            95 |   64883.81 |
++-------------+---------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> SELECT department, COUNT(*) AS num_employees
+    -> FROM Employees
+    -> GROUP BY department
+    -> HAVING COUNT(*) > 10;
++-------------+---------------+
+| department  | num_employees |
++-------------+---------------+
+| Sales       |           110 |
+| Finance     |           102 |
+| Marketing   |           104 |
+| HR          |            96 |
+| Engineering |            95 |
++-------------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> SELECT d.dept_name, COUNT(e.employee_id) AS num_employees, ROUND(AVG(e.salary),2) AS avg_salary
+    -> FROM Employees e
+    -> JOIN Departments d ON e.dept_id = d.dept_id
+    -> GROUP BY d.dept_name
+    -> ORDER BY avg_salary DESC;
++-------------+---------------+------------+
+| dept_name   | num_employees | avg_salary |
++-------------+---------------+------------+
+| Engineering |           114 |   67461.45 |
+| Marketing   |           135 |   65495.85 |
+| HR          |           130 |   64206.81 |
+| Finance     |           128 |   63495.64 |
++-------------+---------------+------------+
+4 rows in set (0.01 sec)
+
+mysql> 
+mysql> SELECT employee_id, first_name, last_name, rating
+    -> FROM Employees
+    -> WHERE is_active = TRUE
+    -> ORDER BY rating DESC
+    -> LIMIT 5;
++-------------+------------+-----------+--------+
+| employee_id | first_name | last_name | rating |
++-------------+------------+-----------+--------+
+|         778 | John       | Doe       |      5 |
+|         613 | Charlie    | Brown     |      5 |
+|          68 | Charlie    | Smith     |      5 |
+|         110 | Jane       | Brown     |      5 |
+|         201 | Bob        | Doe       |      5 |
++-------------+------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> notee;
