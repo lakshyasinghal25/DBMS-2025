@@ -50,11 +50,13 @@ ALTER TABLE Employees
     ON DELETE SET NULL
     ON UPDATE CASCADE;
 
-INSERT INTO Departments (dept_name, location) VALUES
-  ('HR', 'New Delhi'),
-  ('Engineering', 'Bangalore'),
-  ('Marketing', 'Mumbai'),
-  ('Finance', 'Chennai');
+SHOW VARIABLES LIKE 'secure_file_priv';
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/departments.csv'
+INTO TABLE Departments
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(dept_name, location);
 
 SET SQL_SAFE_UPDATES = 0;
 UPDATE Employees
@@ -85,7 +87,7 @@ SET e.salary = ROUND(e.salary * 1.10, 2)
 WHERE d.dept_name = 'Engineering';
 SET SQL_SAFE_UPDATES = 1;
 
--- tee C:/logs/dbms_log.txt;
+tee C:/logs/dbms_log.txt;
 
 SELECT employee_id, first_name, last_name, salary
 FROM Employees
@@ -126,4 +128,4 @@ WHERE is_active = TRUE
 ORDER BY rating DESC
 LIMIT 5;
 
--- notee;
+notee;
